@@ -1,0 +1,10 @@
+# DuckDB connection profile - an embedded, file-based analytical database,
+# so this project needs no server, credentials or cloud account to run.
+
+analytics_engineering_project:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "analytics_engineering.duckdb"
+      threads: 4
