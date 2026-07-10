@@ -1,0 +1,29 @@
+name: "analytics_engineering_project"
+version: "1.0.0"
+config-version: 2
+
+profile: "analytics_engineering_project"
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  analytics_engineering_project:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  analytics_engineering_project:
+    +column_types:
+      order_id: integer
+      customer_id: integer
+      order_date: date
+      quantity: integer
+      unit_price: numeric(10,2)
+      total_amount: numeric(10,2)
